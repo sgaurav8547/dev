@@ -1,0 +1,922 @@
+
+/* ========================================
+   THEME SUPPORT
+   ======================================== */
+
+/* Light Theme (Default) */
+.lightTheme {
+  background: #ffffff;
+  color: #212529;
+}
+
+.lightTheme .navButton {
+  background: #f8f9fa !important;
+  border-color: #dee2e6 !important;
+  color: #495057 !important;
+}
+
+.lightTheme .navButton:hover:not(.disabled) {
+  background: #e9ecef !important;
+  border-color: #adb5bd !important;
+}
+
+.lightTheme .dayButton {
+  background: #ffffff !important;
+  border-color: #dee2e6 !important;
+  color: #495057 !important;
+}
+
+.lightTheme .dayButton:hover:not(.disabled):not(.selected) {
+  background: #f8f9fa !important;
+  border-color: #adb5bd !important;
+}
+
+.lightTheme .dayButton.selected {
+  background: #007bff !important;
+  border-color: #007bff !important;
+  color: #ffffff !important;
+}
+
+.lightTheme .dayButton.today:not(.selected) {
+  background: #e7f3ff !important;
+  border-color: #007bff !important;
+  color: #0056b3 !important;
+}
+
+.lightTheme .datePickerButton {
+  background: #f8f9fa !important;
+  border-color: #dee2e6 !important;
+  color: #495057 !important;
+}
+
+.lightTheme .datePickerButton:hover {
+  background: #e9ecef !important;
+  border-color: #adb5bd !important;
+}
+
+.lightPortalPicker {
+  background: #ffffff;
+  border: 1px solid #dee2e6;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Dark Theme */
+.darkTheme {
+  background: #2b2b2b;
+  color: #e9ecef;
+}
+
+.darkTheme .navButton {
+  background: #495057 !important;
+  border-color: #6c757d !important;
+  color: #f8f9fa !important;
+}
+
+.darkTheme .navButton:hover:not(.disabled) {
+  background: #6c757d !important;
+  border-color: #adb5bd !important;
+}
+
+.darkTheme .dayButton {
+  background: #343a40 !important;
+  border-color: #6c757d !important;
+  color: #f8f9fa !important;
+}
+
+.darkTheme .dayButton:hover:not(.disabled):not(.selected) {
+  background: #495057 !important;
+  border-color: #adb5bd !important;
+}
+
+.darkTheme .dayButton.selected {
+  background: #0d6efd !important;
+  border-color: #0d6efd !important;
+  color: #ffffff !important;
+}
+
+.darkTheme .dayButton.today:not(.selected) {
+  background: #1a365d !important;
+  border-color: #0d6efd !important;
+  color: #66b3ff !important;
+}
+
+.darkTheme .datePickerButton {
+  background: #495057 !important;
+  border-color: #6c757d !important;
+  color: #f8f9fa !important;
+}
+
+.darkTheme .datePickerButton:hover {
+  background: #6c757d !important;
+  border-color: #adb5bd !important;
+}
+
+.darkPortalPicker {
+  background: #343a40;
+  border: 1px solid #6c757d;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+}
+
+/* Dark theme for react-datepicker */
+.darkTheme :global(.react-datepicker) {
+  background-color: #343a40 !important;
+  border: 1px solid #6c757d !important;
+  color: #f8f9fa !important;
+}
+
+.darkTheme :global(.react-datepicker__header) {
+  background-color: #495057 !important;
+  border-bottom: 1px solid #6c757d !important;
+}
+
+.darkTheme :global(.react-datepicker__current-month),
+.darkTheme :global(.react-datepicker__day-name) {
+  color: #f8f9fa !important;
+}
+
+.darkTheme :global(.react-datepicker__day) {
+  color: #f8f9fa !important;
+}
+
+.darkTheme :global(.react-datepicker__day:hover) {
+  background-color: #6c757d !important;
+}
+
+.darkTheme :global(.react-datepicker__day--selected),
+.darkTheme :global(.react-datepicker__day--keyboard-selected) {
+  background-color: #0d6efd !important;
+}
+
+.darkTheme :global(.react-datepicker__day--today) {
+  background-color: #1a365d !important;
+  color: #66b3ff !important;
+}
+
+.darkTheme :global(.react-datepicker__navigation-icon::before) {
+  border-color: #f8f9fa !important;
+}
+
+.darkTheme :global(.react-datepicker__month-dropdown),
+.darkTheme :global(.react-datepicker__year-dropdown) {
+  background-color: #343a40 !important;
+  border: 1px solid #6c757d !important;
+  color: #f8f9fa !important;
+}
+
+.darkTheme :global(.react-datepicker__month-option),
+.darkTheme :global(.react-datepicker__year-option) {
+  color: #f8f9fa !important;
+}
+
+.darkTheme :global(.react-datepicker__month-option:hover),
+.darkTheme :global(.react-datepicker__year-option:hover) {
+  background-color: #6c757d !important;
+}
+
+/* ========================================
+   BASE STYLES
+   ======================================== */
+
+.datePagination {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0;
+  padding: 0.125rem;
+  background: #ffffff;
+  border-radius: 4px;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+  margin: 0;
+  max-width: 100%;
+}
+
+.navButton {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  width: 24px;
+  height: 28px;
+  background: #f8f9fa !important;
+  border: 1px solid #dee2e6 !important;
+  border-radius: 0 !important;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  color: #495057 !important;
+  flex-shrink: 0;
+  padding: 0 !important;
+  font-size: 0.75rem !important;
+}
+
+/* Left button - rounded left corners */
+.navButton:first-child {
+  border-top-left-radius: 4px !important;
+  border-bottom-left-radius: 4px !important;
+  border-right: none !important;
+}
+
+/* Right button - rounded right corners */
+.navButton:last-child {
+  border-top-right-radius: 4px !important;
+  border-bottom-right-radius: 4px !important;
+  border-left: none !important;
+}
+
+.navButton:hover:not(.disabled) {
+  background: #e9ecef;
+  border-color: #adb5bd;
+}
+
+.navButton.disabled {
+  background: #f8f9fa;
+  color: #ced4da;
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+
+.navButton:focus {
+  outline: 2px solid #007bff;
+  outline-offset: 1px;
+  z-index: 2;
+  position: relative;
+}
+
+.daysContainer {
+  display: flex;
+  gap: 0;
+  flex-wrap: nowrap;
+}
+
+.dayButton {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  justify-content: center !important;
+  min-width: 32px;
+  height: 28px;
+  background: #ffffff !important;
+  border: 1px solid #dee2e6 !important;
+  border-radius: 0 !important;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  padding: 0.05rem 0.25rem !important;
+  flex-shrink: 0;
+  font-family: inherit !important;
+  font-size: inherit !important;
+  margin-left: -1px !important;
+}
+
+/* First day button - rounded left corners */
+.dayButton:first-child {
+  border-top-left-radius: 0 !important;
+  border-bottom-left-radius: 0 !important;
+  margin-left: 0 !important;
+}
+
+/* Last day button - rounded right corners */
+.dayButton:last-child {
+  border-top-right-radius: 0 !important;
+  border-bottom-right-radius: 0 !important;
+}
+
+.dayButton:hover {
+  background: #f8f9fa;
+  border-color: #adb5bd;
+}
+
+.dayButton:focus {
+  outline: 2px solid #007bff !important;
+  outline-offset: 1px !important;
+  z-index: 2 !important;
+  position: relative !important;
+}
+
+.dayButton.selected {
+  background: #007bff !important;
+  border-color: #007bff !important;
+  color: #ffffff !important;
+  font-weight: 600 !important;
+  z-index: 1 !important;
+  position: relative !important;
+  cursor: default !important;
+  pointer-events: auto !important;
+}
+
+/* Remove the test-like rotating border */
+
+/* Simple text styling for selected state */
+.dayButton.selected .dayName,
+.dayButton.selected .dateText {
+  color: #ffffff !important;
+  font-weight: 600 !important;
+}
+
+/* Simple hover effect for selected date */
+.dayButton.selected:hover {
+  background: #0056b3 !important;
+}
+
+.dayButton.selected:focus {
+  outline: 3px solid #ffeb3b !important;
+  outline-offset: 2px !important;
+  box-shadow: 0 0 0 1px #ffffff, 0 0 0 5px #ffeb3b !important;
+}
+
+/* Simple styling when selected date is also today */
+.dayButton.selected.today {
+  background: #007bff !important;
+  border: 2px solid #007bff !important;
+  color: #ffffff !important;
+}
+
+.dayButton.today {
+  border-color: #28a745 !important;
+  border-width: 1px !important;
+  background: #f8fff8 !important;
+  opacity: 0.8 !important;
+}
+
+.dayButton.today .dayName,
+.dayButton.today .dateText {
+  color: #155724 !important;
+  font-weight: 600 !important; /* Reduced from 800 */
+}
+
+.dayButton.disabled {
+  background: #f8f9fa !important;
+  color: #ced4da !important;
+  cursor: not-allowed !important;
+  opacity: 0.5 !important;
+  border-color: #e9ecef !important;
+}
+
+.dayButton.disabled .dayName,
+.dayButton.disabled .dateText {
+  color: #ced4da !important;
+}
+
+.dayName {
+  font-size: 0.5rem !important;
+  font-weight: 600 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.2px !important;
+  margin-bottom: 0.05rem !important;
+  color: #333333 !important;
+  line-height: 1 !important;
+  font-family: inherit !important;
+}
+
+.dateText {
+  font-size: 0.75rem !important;
+  font-weight: 600 !important;
+  line-height: 1 !important;
+  color: #333333 !important;
+  font-family: inherit !important;
+}
+
+/* Date Picker Styles */
+.datePickerContainer {
+  position: relative;
+  margin-left: 0.25rem;
+}
+
+/* Theme Support */
+.lightTheme {
+  --bg-primary: rgba(255, 255, 255, 0.95);
+  --bg-secondary: #f8f9fa;
+  --bg-hover: #e9ecef;
+  --border-color: #dee2e6;
+  --border-hover: #adb5bd;
+  --text-primary: #495057;
+  --text-secondary: #333333;
+  --text-disabled: #ced4da;
+  --bg-disabled: #f8f9fa;
+  --bg-today: #f8fff8;
+  --text-today: #155724;
+  --border-today: #28a745;
+  --bg-selected: #007bff;
+  --bg-selected-hover: #0056b3;
+  --text-selected: #ffffff;
+  --shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+
+.darkTheme {
+  --bg-primary: rgba(34, 34, 34, 0.95);
+  --bg-secondary: #4a5568;
+  --bg-hover: #718096;
+  --border-color: #4a5568;
+  --border-hover: #718096;
+  --text-primary: #e2e8f0;
+  --text-secondary: #f7fafc;
+  --text-disabled: #a0aec0;
+  --bg-disabled: #4a5568;
+  --bg-today: #2f855a;
+  --text-today: #c6f6d5;
+  --border-today: #38a169;
+  --bg-selected: #3182ce;
+  --bg-selected-hover: #2c5282;
+  --text-selected: #ffffff;
+  --shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+/* Apply theme variables to existing classes */
+.lightTheme,
+.darkTheme {
+  background: var(--bg-primary);
+  box-shadow: var(--shadow);
+}
+
+.lightTheme .navButton,
+.darkTheme .navButton {
+  background: var(--bg-secondary) !important;
+  border-color: var(--border-color) !important;
+  color: var(--text-primary) !important;
+}
+
+.lightTheme .navButton:hover:not(.disabled),
+.darkTheme .navButton:hover:not(.disabled) {
+  background: var(--bg-hover) !important;
+  border-color: var(--border-hover) !important;
+}
+
+.lightTheme .dayButton,
+.darkTheme .dayButton {
+  background: var(--bg-primary) !important;
+  border-color: var(--border-color) !important;
+  color: var(--text-secondary) !important;
+}
+
+.lightTheme .dayButton:hover,
+.darkTheme .dayButton:hover {
+  background: var(--bg-hover) !important;
+  border-color: var(--border-hover) !important;
+}
+
+.lightTheme .dayButton.selected,
+.darkTheme .dayButton.selected {
+  background: var(--bg-selected) !important;
+  border-color: var(--bg-selected) !important;
+  color: var(--text-selected) !important;
+}
+
+.lightTheme .dayButton.selected:hover,
+.darkTheme .dayButton.selected:hover {
+  background: var(--bg-selected-hover) !important;
+}
+
+.lightTheme .dayButton.today,
+.darkTheme .dayButton.today {
+  background: var(--bg-today) !important;
+  border-color: var(--border-today) !important;
+}
+
+.lightTheme .dayButton.today .dayName,
+.lightTheme .dayButton.today .dateText,
+.darkTheme .dayButton.today .dayName,
+.darkTheme .dayButton.today .dateText {
+  color: var(--text-today) !important;
+}
+
+.lightTheme .dayButton.disabled,
+.darkTheme .dayButton.disabled {
+  background: var(--bg-disabled) !important;
+  color: var(--text-disabled) !important;
+  border-color: var(--border-color) !important;
+}
+
+.lightTheme .dayName,
+.lightTheme .dateText,
+.darkTheme .dayName,
+.darkTheme .dateText {
+  color: var(--text-secondary) !important;
+}
+
+.lightTheme .datePickerButton,
+.darkTheme .datePickerButton {
+  background: var(--bg-secondary) !important;
+  border-color: var(--border-color) !important;
+  color: var(--text-primary) !important;
+}
+
+.lightTheme .datePickerButton:hover,
+.darkTheme .datePickerButton:hover {
+  background: var(--bg-hover) !important;
+  border-color: var(--border-hover) !important;
+  color: var(--bg-selected) !important;
+}
+
+.datePickerButton {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  width: 28px;
+  height: 28px;
+  background: #f8f9fa !important;
+  border: 1px solid #dee2e6 !important;
+  border-radius: 4px !important;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  color: #495057 !important;
+  font-size: 0.75rem !important;
+  padding: 0 !important;
+}
+
+.datePickerButton:hover {
+  background: #e9ecef !important;
+  border-color: #adb5bd !important;
+  color: #007bff !important;
+}
+
+.datePickerButton:focus {
+  outline: 2px solid #007bff;
+  outline-offset: 1px;
+}
+
+.portalOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 9998;
+  pointer-events: none;
+}
+
+.portalBackdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.1);
+  z-index: 9999;
+  cursor: pointer;
+  pointer-events: auto;
+}
+
+.portalDatePicker {
+  position: fixed;
+  z-index: 10000;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
+  border-radius: 8px;
+  overflow: visible;
+  background: white;
+  animation: fadeInScale 0.15s ease-out;
+  border: 1px solid #dee2e6;
+  max-width: 280px;
+  pointer-events: auto;
+}
+
+/* Portal picker theme styles */
+.lightPortalPicker {
+  background: var(--bg-primary, white);
+  border-color: var(--border-color, #dee2e6);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
+}
+
+.darkPortalPicker {
+  background: var(--bg-primary, #2d3748);
+  border-color: var(--border-color, #4a5568);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
+}
+
+.datePickerBackdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.1);
+  z-index: 9998;
+  cursor: pointer;
+}
+
+.datePickerWrapper {
+  position: fixed;
+  z-index: 9999;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
+  border-radius: 8px;
+  overflow: visible;
+  background: white;
+  animation: fadeInScale 0.15s ease-out;
+  border: 1px solid #dee2e6;
+  max-width: 280px;
+}
+
+@keyframes fadeInScale {
+  0% {
+    opacity: 0;
+    transform: scale(0.95) translateY(-5px);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+.customCalendar {
+  border: none !important;
+  box-shadow: none !important;
+  font-family: inherit !important;
+}
+
+/* Custom react-datepicker styling for inline mode */
+:global(.react-datepicker) {
+  border: 1px solid #dee2e6 !important;
+  border-radius: 8px !important;
+  font-family: inherit !important;
+  font-size: 0.875rem !important;
+  box-shadow: none !important;
+}
+
+:global(.react-datepicker--focus-within) {
+  outline: 2px solid #007bff !important;
+  outline-offset: 2px !important;
+}
+
+:global(.react-datepicker__header) {
+  background: #f8f9fa !important;
+  border-bottom: 1px solid #dee2e6 !important;
+  border-top-left-radius: 8px !important;
+  border-top-right-radius: 8px !important;
+  padding: 8px 0 !important;
+}
+
+:global(.react-datepicker__current-month) {
+  color: #495057 !important;
+  font-weight: 600 !important;
+  margin-bottom: 8px !important;
+}
+
+:global(.react-datepicker__month) {
+  margin: 8px !important;
+}
+
+:global(.react-datepicker__day-names) {
+  margin-bottom: 4px !important;
+}
+
+:global(.react-datepicker__day-name) {
+  color: #6c757d !important;
+  font-weight: 600 !important;
+  width: 32px !important;
+  line-height: 32px !important;
+  font-size: 0.75rem !important;
+}
+
+:global(.react-datepicker__day) {
+  width: 32px !important;
+  height: 32px !important;
+  line-height: 32px !important;
+  text-align: center !important;
+  cursor: pointer !important;
+  border-radius: 4px !important;
+  margin: 1px !important;
+  font-size: 0.875rem !important;
+}
+
+:global(.react-datepicker__day--selected) {
+  background: #007bff !important;
+  color: white !important;
+  font-weight: 600 !important;
+}
+
+:global(.react-datepicker__day--selected:hover) {
+  background: #0056b3 !important;
+}
+
+:global(.react-datepicker__day--keyboard-selected) {
+  background: #e7f1ff !important;
+  color: #007bff !important;
+}
+
+:global(.react-datepicker__day:hover) {
+  background: #f8f9fa !important;
+  color: #007bff !important;
+}
+
+:global(.react-datepicker__day--disabled) {
+  color: #ced4da !important;
+  cursor: not-allowed !important;
+  background: transparent !important;
+}
+
+:global(.react-datepicker__day--disabled:hover) {
+  background: transparent !important;
+  color: #ced4da !important;
+}
+
+:global(.react-datepicker__day--today) {
+  background: #fff3cd !important;
+  border: 1px solid #28a745 !important;
+  color: #856404 !important;
+  font-weight: 600 !important;
+}
+
+:global(.react-datepicker__day--today.react-datepicker__day--selected) {
+  background: #007bff !important;
+  border-color: #007bff !important;
+  color: white !important;
+}
+
+/* Navigation arrows in date picker */
+:global(.react-datepicker__navigation) {
+  border: none !important;
+  width: 24px !important;
+  height: 24px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  border-radius: 4px !important;
+  background: #f8f9fa !important;
+}
+
+:global(.react-datepicker__navigation:hover) {
+  background: #e9ecef !important;
+}
+
+:global(.react-datepicker__navigation-icon::before) {
+  border-color: #495057 !important;
+  border-width: 2px 2px 0 0 !important;
+  width: 6px !important;
+  height: 6px !important;
+}
+
+/* Mobile styles - show 3 days */
+@media (max-width: 768px) {
+  .datePagination {
+    gap: 0;
+    padding: 0.0625rem;
+  }
+
+  .navButton {
+    width: 20px;
+    height: 24px;
+    font-size: 0.625rem;
+  }
+
+  .dayButton {
+    min-width: 28px;
+    height: 24px;
+    padding: 0.025rem 0.2rem;
+  }
+
+  .dayName {
+    font-size: 0.4rem;
+    margin-bottom: 0.025rem;
+  }
+
+  .dateText {
+    font-size: 0.625rem;
+  }
+
+  .datePickerButton {
+    width: 24px;
+    height: 24px;
+    font-size: 0.625rem;
+  }
+  
+  .datePickerWrapper {
+    max-width: 260px;
+    transform: scale(0.85);
+    transform-origin: top right;
+  }
+
+  /* Responsive date picker styling for mobile */
+  :global(.react-datepicker) {
+    font-size: 0.75rem !important;
+  }
+
+  :global(.react-datepicker__day) {
+    width: 28px !important;
+    height: 28px !important;
+    line-height: 28px !important;
+    font-size: 0.75rem !important;
+  }
+
+  :global(.react-datepicker__day-name) {
+    width: 28px !important;
+    line-height: 28px !important;
+    font-size: 0.65rem !important;
+  }
+}
+
+/* Tablet and small desktop */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .navButton {
+    height: 30px;
+  }
+  
+  .dayButton {
+    min-width: 34px;
+    height: 30px;
+    padding: 0.05rem 0.3rem;
+  }
+}
+
+/* Large desktop */
+@media (min-width: 1025px) {
+  .datePagination {
+    gap: 0;
+  }
+
+  .navButton {
+    width: 26px;
+    height: 32px;
+  }
+
+  .dayButton {
+    min-width: 36px;
+    height: 32px;
+    padding: 0.05rem 0.35rem;
+  }
+
+  .dayName {
+    font-size: 0.55rem;
+  }
+
+  .dateText {
+    font-size: 0.8rem;
+  }
+
+  .datePickerButton {
+    width: 32px;
+    height: 32px;
+  }
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  .dayButton.selected {
+    background: #000000 !important;
+    border-color: #000000 !important;
+    border-width: 4px !important;
+    color: #ffffff !important;
+    border: 4px solid #ffffff !important;
+  }
+
+  .dayButton.selected::before {
+    background: #ffffff !important;
+    color: #000000 !important;
+    border: 2px solid #000000 !important;
+    background: #ffff00 !important;
+  }
+
+  .dayButton:focus {
+    outline: 4px solid #000000 !important;
+    outline-offset: 2px !important;
+  }
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  .dayButton {
+    transition: none !important;
+  }
+
+  .dayButton:hover {
+    transform: none !important;
+  }
+
+  .dayButton.selected {
+    transform: none !important;
+    transition: none !important;
+    animation: none !important;
+  }
+
+  .dayButton.selected:hover {
+    transform: none !important;
+  }
+
+  .dayButton.selected.today {
+    animation: none !important;
+  }
+
+  .dayButton.selected:focus::before {
+    animation: none !important;
+  }
+}
+
+/* Screen reader specific enhancements */
+.srOnly {
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  padding: 0 !important;
+  margin: -1px !important;
+  overflow: hidden !important;
+  clip: rect(0, 0, 0, 0) !important;
+  border: 0 !important;
+}
+
+/* Print styles */
+@media print {
+  .dayButton.selected {
+    background: #000000 !important;
+    color: #ffffff !important;
+    border: 3px solid #000000 !important;
+  }
+
+  .dayButton.selected::before {
+    display: none;
+  }
+}
