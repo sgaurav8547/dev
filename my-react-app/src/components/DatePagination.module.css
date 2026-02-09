@@ -1,176 +1,223 @@
 
+/* DatePagination Theme Styles */
+
 /* ========================================
-   THEME SUPPORT
+   SHARED THEME VARIABLES
    ======================================== */
 
-/* Light Theme (Default) */
+:root {
+  /* Light Theme Colors */
+  --light-bg-primary: #ffffff;
+  --light-bg-secondary: #f8f9fa;
+  --light-bg-hover: #e9ecef;
+  --light-text-primary: #212529;
+  --light-text-secondary: #495057;
+  --light-border-primary: #dee2e6;
+  --light-border-secondary: #adb5bd;
+  --light-accent: #007bff;
+  --light-accent-hover: #0056b3;
+  --light-accent-light: #e7f3ff;
+
+  /* Dark Theme Colors */
+  --dark-bg-primary: #2b2b2b;
+  --dark-bg-secondary: #343a40;
+  --dark-bg-tertiary: #495057;
+  --dark-bg-hover: #6c757d;
+  --dark-text-primary: #e9ecef;
+  --dark-text-secondary: #f8f9fa;
+  --dark-border-primary: #6c757d;
+  --dark-border-secondary: #adb5bd;
+  --dark-accent: #2563eb;
+  --dark-accent-hover: #3b82f6;
+  --dark-accent-dark: #1a365d;
+
+  /* Common Interactive States */
+  --focus-ring: #007bff;
+  --border-radius: 4px;
+  --transition-standard: all 0.2s ease;
+  --box-shadow-light: 0 4px 6px rgba(0, 0, 0, 0.1);
+  --box-shadow-dark: 0 4px 6px rgba(0, 0, 0, 0.3);
+}
+
+/* ========================================
+   UNIFIED THEME SUPPORT
+   ======================================== */
+
+/* Light Theme - Unified with EnergyDashboard */
 .lightTheme {
-  background: #ffffff;
-  color: #212529;
+  background: var(--light-bg-primary);
+  color: var(--light-text-primary);
 }
 
 .lightTheme .navButton {
-  background: #f8f9fa !important;
-  border-color: #dee2e6 !important;
-  color: #495057 !important;
+  background: var(--light-bg-secondary) !important;
+  border-color: var(--light-border-primary) !important;
+  color: var(--light-text-secondary) !important;
 }
 
 .lightTheme .navButton:hover:not(.disabled) {
-  background: #e9ecef !important;
-  border-color: #adb5bd !important;
+  background: var(--light-bg-hover) !important;
+  border-color: var(--light-border-secondary) !important;
 }
 
 .lightTheme .dayButton {
-  background: #ffffff !important;
-  border-color: #dee2e6 !important;
-  color: #495057 !important;
+  background: var(--light-bg-primary) !important;
+  border-color: var(--light-border-primary) !important;
+  color: var(--light-text-secondary) !important;
 }
 
 .lightTheme .dayButton:hover:not(.disabled):not(.selected) {
-  background: #f8f9fa !important;
-  border-color: #adb5bd !important;
+  background: var(--light-bg-secondary) !important;
+  border-color: var(--light-border-secondary) !important;
 }
 
 .lightTheme .dayButton.selected {
-  background: #007bff !important;
-  border-color: #007bff !important;
+  background: var(--light-accent) !important;
+  border-color: var(--light-accent) !important;
   color: #ffffff !important;
 }
 
 .lightTheme .dayButton.today:not(.selected) {
-  background: #e7f3ff !important;
-  border-color: #007bff !important;
-  color: #0056b3 !important;
+  background: var(--light-accent-light) !important;
+  border-color: var(--light-accent) !important;
+  color: var(--light-accent-hover) !important;
 }
 
 .lightTheme .datePickerButton {
-  background: #f8f9fa !important;
-  border-color: #dee2e6 !important;
-  color: #495057 !important;
+  background: var(--light-bg-secondary) !important;
+  border-color: var(--light-border-primary) !important;
+  color: var(--light-text-secondary) !important;
 }
 
 .lightTheme .datePickerButton:hover {
-  background: #e9ecef !important;
-  border-color: #adb5bd !important;
+  background: var(--light-bg-hover) !important;
+  border-color: var(--light-border-secondary) !important;
 }
 
 .lightPortalPicker {
-  background: #ffffff;
-  border: 1px solid #dee2e6;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  background: var(--light-bg-primary);
+  border: 1px solid var(--light-border-primary);
+  box-shadow: var(--box-shadow-light);
 }
 
-/* Dark Theme */
+/* Dark Theme - Unified with EnergyDashboard */
 .darkTheme {
-  background: #2b2b2b;
-  color: #e9ecef;
+  background: var(--dark-bg-primary);
+  color: var(--dark-text-primary);
 }
 
 .darkTheme .navButton {
-  background: #495057 !important;
-  border-color: #6c757d !important;
-  color: #f8f9fa !important;
+  background: var(--dark-bg-tertiary) !important;
+  border-color: var(--dark-border-primary) !important;
+  color: var(--dark-text-secondary) !important;
 }
 
 .darkTheme .navButton:hover:not(.disabled) {
-  background: #6c757d !important;
-  border-color: #adb5bd !important;
+  background: var(--dark-bg-hover) !important;
+  border-color: var(--dark-border-secondary) !important;
 }
 
 .darkTheme .dayButton {
-  background: #343a40 !important;
-  border-color: #6c757d !important;
-  color: #f8f9fa !important;
+  background: var(--dark-bg-secondary) !important;
+  border-color: var(--dark-border-primary) !important;
+  color: var(--dark-text-secondary) !important;
 }
 
 .darkTheme .dayButton:hover:not(.disabled):not(.selected) {
-  background: #495057 !important;
-  border-color: #adb5bd !important;
+  background: var(--dark-bg-tertiary) !important;
+  border-color: var(--dark-border-secondary) !important;
 }
 
 .darkTheme .dayButton.selected {
-  background: #0d6efd !important;
-  border-color: #0d6efd !important;
+  background: var(--dark-accent) !important;
+  border-color: var(--dark-accent) !important;
   color: #ffffff !important;
+  box-shadow: 0 0 0 1px var(--dark-accent), 0 2px 4px rgba(37, 99, 235, 0.3) !important;
+}
+
+.darkTheme .dayButton.selected:hover {
+  background: var(--dark-accent-hover) !important;
+  border-color: var(--dark-accent-hover) !important;
+  box-shadow: 0 0 0 1px var(--dark-accent-hover), 0 2px 6px rgba(59, 130, 246, 0.4) !important;
 }
 
 .darkTheme .dayButton.today:not(.selected) {
-  background: #1a365d !important;
-  border-color: #0d6efd !important;
-  color: #66b3ff !important;
+  background: var(--dark-accent-dark) !important;
+  border-color: var(--dark-accent) !important;
+  color: var(--dark-accent-hover) !important;
 }
 
 .darkTheme .datePickerButton {
-  background: #495057 !important;
-  border-color: #6c757d !important;
-  color: #f8f9fa !important;
+  background: var(--dark-bg-tertiary) !important;
+  border-color: var(--dark-border-primary) !important;
+  color: var(--dark-text-secondary) !important;
 }
 
 .darkTheme .datePickerButton:hover {
-  background: #6c757d !important;
-  border-color: #adb5bd !important;
+  background: var(--dark-bg-hover) !important;
+  border-color: var(--dark-border-secondary) !important;
 }
 
 .darkPortalPicker {
-  background: #343a40;
-  border: 1px solid #6c757d;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+  background: var(--dark-bg-secondary);
+  border: 1px solid var(--dark-border-primary);
+  box-shadow: var(--box-shadow-dark);
 }
 
 /* Dark theme for react-datepicker */
 .darkTheme :global(.react-datepicker) {
-  background-color: #343a40 !important;
-  border: 1px solid #6c757d !important;
-  color: #f8f9fa !important;
+  background-color: var(--dark-bg-secondary) !important;
+  border: 1px solid var(--dark-border-primary) !important;
+  color: var(--dark-text-secondary) !important;
 }
 
 .darkTheme :global(.react-datepicker__header) {
-  background-color: #495057 !important;
-  border-bottom: 1px solid #6c757d !important;
+  background-color: var(--dark-bg-tertiary) !important;
+  border-bottom: 1px solid var(--dark-border-primary) !important;
 }
 
 .darkTheme :global(.react-datepicker__current-month),
 .darkTheme :global(.react-datepicker__day-name) {
-  color: #f8f9fa !important;
+  color: var(--dark-text-secondary) !important;
 }
 
 .darkTheme :global(.react-datepicker__day) {
-  color: #f8f9fa !important;
+  color: var(--dark-text-secondary) !important;
 }
 
 .darkTheme :global(.react-datepicker__day:hover) {
-  background-color: #6c757d !important;
+  background-color: var(--dark-bg-hover) !important;
 }
 
 .darkTheme :global(.react-datepicker__day--selected),
 .darkTheme :global(.react-datepicker__day--keyboard-selected) {
-  background-color: #0d6efd !important;
+  background-color: var(--dark-accent) !important;
 }
 
 .darkTheme :global(.react-datepicker__day--today) {
-  background-color: #1a365d !important;
-  color: #66b3ff !important;
+  background-color: var(--dark-accent-dark) !important;
+  color: var(--dark-accent-hover) !important;
 }
 
 .darkTheme :global(.react-datepicker__navigation-icon::before) {
-  border-color: #f8f9fa !important;
+  border-color: var(--dark-text-secondary) !important;
 }
 
 .darkTheme :global(.react-datepicker__month-dropdown),
 .darkTheme :global(.react-datepicker__year-dropdown) {
-  background-color: #343a40 !important;
-  border: 1px solid #6c757d !important;
-  color: #f8f9fa !important;
+  background-color: var(--dark-bg-secondary) !important;
+  border: 1px solid var(--dark-border-primary) !important;
+  color: var(--dark-text-secondary) !important;
 }
 
 .darkTheme :global(.react-datepicker__month-option),
 .darkTheme :global(.react-datepicker__year-option) {
-  color: #f8f9fa !important;
+  color: var(--dark-text-secondary) !important;
 }
 
 .darkTheme :global(.react-datepicker__month-option:hover),
 .darkTheme :global(.react-datepicker__year-option:hover) {
-  background-color: #6c757d !important;
+  background-color: var(--dark-bg-hover) !important;
 }
 
 /* ========================================

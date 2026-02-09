@@ -1,0 +1,217 @@
+/* EnergyDashboard Theme Styles */
+
+/* ========================================
+   SHARED THEME VARIABLES
+   ======================================== */
+
+:root {
+  /* Light Theme Colors */
+  --light-bg-primary: #ffffff;
+  --light-bg-secondary: #f8f9fa;
+  --light-bg-hover: #e9ecef;
+  --light-text-primary: #212529;
+  --light-text-secondary: #495057;
+  --light-border-primary: #dee2e6;
+  --light-border-secondary: #adb5bd;
+  --light-accent: #007bff;
+  --light-accent-hover: #0056b3;
+  --light-accent-light: #e7f3ff;
+
+  /* Dark Theme Colors */
+  --dark-bg-primary: #2b2b2b;
+  --dark-bg-secondary: #343a40;
+  --dark-bg-tertiary: #495057;
+  --dark-bg-hover: #6c757d;
+  --dark-text-primary: #e9ecef;
+  --dark-text-secondary: #f8f9fa;
+  --dark-border-primary: #6c757d;
+  --dark-border-secondary: #adb5bd;
+  --dark-accent: #2563eb;
+  --dark-accent-hover: #3b82f6;
+  --dark-accent-dark: #1a365d;
+
+  /* Common Interactive States */
+  --focus-ring: #007bff;
+  --border-radius: 4px;
+  --transition-standard: all 0.2s ease;
+  --box-shadow-light: 0 4px 6px rgba(0, 0, 0, 0.1);
+  --box-shadow-dark: 0 4px 6px rgba(0, 0, 0, 0.3);
+}
+
+/* ========================================
+   UNIFIED THEME SUPPORT
+   ======================================== */
+
+/* Light Theme - Unified with DatePagination */
+.lightTheme {
+  color: var(--light-text-primary);
+}
+
+.lightTheme.container {
+  background-color: var(--light-bg-primary);
+  border: 1px solid var(--light-border-primary);
+}
+
+.lightTheme.containerExpanded {
+  background-color: var(--light-bg-primary);
+}
+
+.lightTheme .expandButton {
+  background-color: var(--light-bg-secondary);
+  color: var(--light-text-secondary);
+  border: 1px solid var(--light-border-primary);
+}
+
+.lightTheme .expandButton:hover {
+  background-color: var(--light-bg-hover);
+  border-color: var(--light-border-secondary);
+}
+
+/* Dark Theme - Unified with DatePagination */
+.darkTheme {
+  color: var(--dark-text-primary);
+}
+
+.darkTheme.container {
+  background-color: var(--dark-bg-primary);
+  border: 1px solid var(--dark-border-primary);
+}
+
+.darkTheme.containerExpanded {
+  background-color: var(--dark-bg-primary);
+}
+
+.darkTheme .expandButton {
+  background-color: var(--dark-bg-tertiary);
+  color: var(--dark-text-secondary);
+  border: 1px solid var(--dark-border-primary);
+}
+
+.darkTheme .expandButton:hover {
+  background-color: var(--dark-bg-hover);
+  border-color: var(--dark-border-secondary);
+}
+
+/* ========================================
+   BASE STYLES
+   ======================================== */
+
+/* Container - Normal State */
+.container {
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  width: 643px;
+  height: auto;
+  border-radius: 8px;
+  padding: 10px;
+  box-sizing: border-box;
+}
+
+/* Container - Expanded State */
+.containerExpanded {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 999;
+  display: flex;
+  flex-direction: column;
+  -webkit-overflow-scrolling: touch;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+/* Chart Container */
+.chartContainer {
+  flex: 1 1 auto;
+  width: 100%;
+}
+
+/* Expand/Collapse Button */
+.expandButton {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  z-index: 10000;
+  padding: 8px 12px;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 16px;
+  border-radius: var(--border-radius);
+  transition: var(--transition-standard);
+  min-width: 40px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.expandButton:hover {
+  transform: scale(1.02);
+}
+
+.expandButton:focus {
+  outline: 2px solid var(--focus-ring);
+  outline-offset: 2px;
+}
+
+.expandButton:active {
+  transform: scale(0.98);
+}
+
+/* Date Pagination Container */
+.dateContainer {
+  padding: 0;
+}
+
+.dateContainerExpanded {
+  padding: 0 20px 20px 20px;
+}
+
+/* ========================================
+   RESPONSIVE DESIGN
+   ======================================== */
+
+/* Mobile optimizations */
+@media (max-width: 768px) {
+  .container {
+    width: 100%;
+    max-width: 100%;
+  }
+  
+  .expandButton {
+    font-size: 16px;
+    padding: 6px 10px;
+  }
+}
+
+/* Tablet optimizations */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .container {
+    width: 100%;
+    max-width: 700px;
+  }
+}
+
+/* High contrast support */
+@media (prefers-contrast: high) {
+  .lightTheme .expandButton {
+    border: 2px solid #000 !important;
+  }
+  
+  .darkTheme .expandButton {
+    border: 2px solid #fff !important;
+  }
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  .container,
+  .containerExpanded,
+  .expandButton {
+    transition: none !important;
+  }
+}

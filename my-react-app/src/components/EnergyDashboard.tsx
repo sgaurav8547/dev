@@ -17,8 +17,8 @@ import { generateMockData } from "../Api/MockApi";
 import DatePagination from "./DatePagination";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCompress, faExpand } from "@fortawesome/free-solid-svg-icons";
-
 import { VictoryTheme } from "victory";
+import styles from "./EnergyDashboard.module.css";
 
 const darkTheme = {
   ...VictoryTheme.clean,
@@ -56,47 +56,11 @@ export default function EnergyDashboard() {
     return <div>No data available</div>;
   }
   const [isExpanded, setIsExpanded] = useState(false);
-  // Define styles for both states
-  // Define styles for both states
-  const containerStyle: React.CSSProperties = isExpanded
-    ? {
-        position: "fixed",
-        top: 0,
-        left: 0,
-        width: "100vw",
-        height: "100vh",
-        backgroundColor:
-          theme === "light"
-            ? "#fff"
-            : "rgba(34, 34, 34, 0.95)",
-        color: theme === "light" ? "black" : "white",
-        zIndex: 999,
-        // padding: "20px",
-        display: "flex",
-        flexDirection: "column",
-        // transition: "all 0.5s ease-in-out", // Animates width/height/position changes
-        WebkitOverflowScrolling: "touch",
-        boxSizing: "border-box",
-        overflow: "hidden",
-      }
-    : {
-        position: "relative",
-        // transition: "all 0.5s ease-in-out", // Animates width/height/position changes
-        overflow: "hidden",
-        display: "flex",
-        flexDirection: "column",
-        width: "643px",
-        height: "auto",
-        backgroundColor:
-          theme === "light"
-            ? "#fff"
-            : "rgba(34, 34, 34, 0.95)",
-        color: theme === "light" ? "black" : "white",
-        borderRadius: "8px",
-        border: theme === "light" ? "1px solid #ddd" : "1px solid #555",
-        padding: "10px",
-        boxSizing: "border-box",
-      };
+  
+  // Get CSS classes based on theme and expansion state
+  const containerClasses = `${styles.container} ${isExpanded ? styles.containerExpanded : ''} ${theme === 'dark' ? styles.darkTheme : styles.lightTheme}`;
+  const dateContainerClasses = `${styles.dateContainer} ${isExpanded ? styles.dateContainerExpanded : ''}`;
+  
   const GOAL_LIMIT = 2.0; // kWh per hour threshold
   const processed = useMemo(() => {
     // 1. Initialize Buckets
@@ -171,29 +135,18 @@ export default function EnergyDashboard() {
   }, [selectedDate]);
 
   return (
-    <div style={containerStyle}>
+    <div className={containerClasses}>
       {/* HEADER SECTION */}
       <div>
+        {/* Expand/Collapse Button */}
         <button
           onClick={() => setIsExpanded(!isExpanded)}
-          style={{
-            position: "absolute",
-            top: "0",
-            right: "5px",
-            zIndex: 10000,
-            padding: "8px 12px",
-            cursor: "pointer",
-            backgroundColor: theme === "light" ? "#fff" : "rgba(34, 34, 34, 0.95)",
-            color: theme !== "light" ? "#eee" : "#333",
-            border: "none",
-            fontWeight: "bold",
-            fontSize: "20px",
-          }}
+          className={styles.expandButton}
         >
           <FontAwesomeIcon icon={isExpanded ? faCompress : faExpand} />
         </button>
       </div>
-      <div style={{ flex: "1 1 auto", width: "100%" }}>
+      <div className={styles.chartContainer}>
         <VictoryChart // 1. Pass the actual calculated dimensions
           width={isExpanded ? window.innerWidth : 800}
           height={isExpanded ? window.innerHeight - 150 : 400}
@@ -322,7 +275,7 @@ export default function EnergyDashboard() {
           /> */}
         </VictoryChart>
       </div>
-      <div style={{ padding: isExpanded ? "0 20px 20px 20px" : "0" }}>
+      <div className={dateContainerClasses}>
         <DatePagination
           selectedDate={selectedDate}
           onDateChange={(date: Date) => {

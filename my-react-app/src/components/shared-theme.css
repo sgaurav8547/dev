@@ -1,0 +1,67 @@
+/* Unified Theme Variables for Energy Dashboard Components */
+
+/* ========================================
+   SHARED THEME COLOR PALETTE
+   ======================================== */
+
+/* This file contains the unified color scheme used across
+   EnergyDashboard and DatePagination components for consistency */
+
+:root {
+  /* Light Theme Colors */
+  --light-bg-primary: #ffffff;
+  --light-bg-secondary: #f8f9fa;
+  --light-bg-hover: #e9ecef;
+  --light-text-primary: #212529;
+  --light-text-secondary: #495057;
+  --light-border-primary: #dee2e6;
+  --light-border-secondary: #adb5bd;
+  --light-accent: #007bff;
+  --light-accent-hover: #0056b3;
+  --light-accent-light: #e7f3ff;
+
+  /* Dark Theme Colors */
+  --dark-bg-primary: #2b2b2b;
+  --dark-bg-secondary: #343a40;
+  --dark-bg-tertiary: #495057;
+  --dark-bg-hover: #6c757d;
+  --dark-text-primary: #e9ecef;
+  --dark-text-secondary: #f8f9fa;
+  --dark-border-primary: #6c757d;
+  --dark-border-secondary: #adb5bd;
+  --dark-accent: #0d6efd;
+  --dark-accent-hover: #66b3ff;
+  --dark-accent-dark: #1a365d;
+
+  /* Common Interactive States */
+  --focus-ring: #007bff;
+  --disabled-opacity: 0.5;
+  --transition-standard: all 0.2s ease;
+  --border-radius: 4px;
+  --box-shadow-light: 0 4px 6px rgba(0, 0, 0, 0.1);
+  --box-shadow-dark: 0 4px 6px rgba(0, 0, 0, 0.3);
+}
+
+/* ========================================
+   USAGE GUIDELINES
+   ======================================== */
+
+/* Light Theme Mappings:
+   - Primary background: var(--light-bg-primary)
+   - Secondary background (buttons): var(--light-bg-secondary)
+   - Hover states: var(--light-bg-hover)
+   - Primary text: var(--light-text-primary)
+   - Secondary text: var(--light-text-secondary)
+   - Borders: var(--light-border-primary)
+   - Accent/Selected: var(--light-accent)
+
+   Dark Theme Mappings:
+   - Primary background: var(--dark-bg-primary)
+   - Secondary background (buttons): var(--dark-bg-secondary)
+   - Tertiary background (nav buttons): var(--dark-bg-tertiary)
+   - Hover states: var(--dark-bg-hover)
+   - Primary text: var(--dark-text-primary)
+   - Secondary text: var(--dark-text-secondary)
+   - Borders: var(--dark-border-primary)
+   - Accent/Selected: var(--dark-accent)
+*/
